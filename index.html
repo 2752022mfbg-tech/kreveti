@@ -34,6 +34,16 @@
 
     <!-- Hero Section -->
     <section id="pocetna" class="hero">
+        <div class="hero-bg">
+            <div class="hero-bg-track">
+                <img src="bed-the-medical.png" alt="Medicinski krevet" class="hero-bg-img">
+                <img src="krevet 2.jpg" alt="Medicinski krevet" class="hero-bg-img">
+                <img src="krevet 3.png" alt="Medicinski krevet" class="hero-bg-img">
+                <img src="bed-the-medical.png" alt="Medicinski krevet" class="hero-bg-img">
+                <img src="krevet 2.jpg" alt="Medicinski krevet" class="hero-bg-img">
+                <img src="krevet 3.png" alt="Medicinski krevet" class="hero-bg-img">
+            </div>
+        </div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h1 class="hero-title">Iznajmljivanje Medicinskih Kreveta</h1>
@@ -77,60 +87,42 @@
         </div>
     </section>
 
-    <!-- Beds Gallery Section -->
+    <!-- Beds Section – Standardni Medicinski Krevet -->
     <section id="kreveti" class="section section-alt">
         <div class="container">
             <h2 class="section-title">Naši Medicinski Kreveti</h2>
-            <p class="section-subtitle">Pregledajte našu ponudu visokokvalitetnih medicinskih kreveta</p>
+            <p class="section-subtitle">Visokokvalitetan standardni model prilagođen vašim potrebama</p>
             
-            <div class="gallery">
+            <div class="bed-single">
                 <div class="gallery-item">
                     <div class="image-placeholder">
-                        <span>Slika 1</span>
-                        <p>Ovde će biti slika medicinskog kreveta</p>
+                        <span>Standardni Medicinski Krevet</span>
                     </div>
                     <div class="gallery-info">
                         <h3>Standardni Medicinski Krevet</h3>
-                        <p>Osnovni model sa svim neophodnim funkcijama za udobnu negu</p>
+                        <p class="bed-description">
+                            Osnovni model sa svim neophodnim funkcijama za udobnu kućnu negu. Pogodan je i za 
+                            rehabilitaciju i oporavak — napredne funkcije kao što su podešavanje nagiba, dual motor 
+                            sistem omogućavaju maksimalan komfor.
+                            Krevet možete prilagoditi putem dodatne opreme u zavisnosti od potreba.
+                        </p>
+                        <h4 class="bed-features-title">Uvek uključeno</h4>
                         <ul class="bed-features">
                             <li>Podešavanje visine</li>
                             <li>Električno upravljanje</li>
                             <li>Bočne zaštitne pregrade</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Slika 2</span>
-                        <p>Ovde će biti slika medicinskog kreveta</p>
-                    </div>
-                    <div class="gallery-info">
-                        <h3>Premium Medicinski Krevet</h3>
-                        <p>Napredni model sa dodatnim funkcijama za maksimalan komfor</p>
-                        <ul class="bed-features">
-                            <li>Podešavanje visine i nagiba</li>
-                            <li>Dual motor sistem</li>
-                            <li>Bočne zaštitne pregrade</li>
-                            <li>Integrisani stočić</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <span>Slika 3</span>
-                        <p>Ovde će biti slika medicinskog kreveta</p>
-                    </div>
-                    <div class="gallery-info">
-                        <h3>Rehabilitacioni Krevet</h3>
-                        <p>Specijalizovani krevet za rehabilitaciju i oporavak</p>
-                        <ul class="bed-features">
-                            <li>Podešavanje svih segmenata</li>
-                            <li>Traka za dizanje</li>
-                            <li>Masažna funkcija</li>
-                            <li>Anti-dekubitus madrac</li>
-                        </ul>
+                        <div class="bed-extras">
+                            <h4 class="bed-extras-title">Dodatna oprema</h4>
+                            <p class="bed-extras-intro">Po želji možete dodati:</p>
+                            <ul class="bed-extras-list">
+                                <li>Podešavanje visine i nagiba / dual motor sistem</li>
+                                <li>Kaiš za humano vezivanje</li>
+                                <li>Podešavanje svih segmenata</li>
+                                <li>Anti-dekubitus madrac</li>
+                            </ul>
+                            <p class="bed-extras-note">Kontaktirajte nas za ponudu prema vašim potrebama.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -148,7 +140,7 @@
                 </div>
                 <div class="service-card">
                     <h3>Dostava i Montaža</h3>
-                    <p>Besplatna dostava i profesionalna montaža kreveta na vašoj adresi. Naš tim će sve postaviti za vas.</p>
+                    <p>Dostava i profesionalna montaža kreveta na vašoj adresi. Naš tim će sve postaviti za vas.</p>
                 </div>
                 <div class="service-card">
                     <h3>Održavanje</h3>
@@ -218,8 +210,8 @@
                     </div>
                     <div class="contact-item">
                         <h3>Adresa</h3>
-                        <p>Vaša adresa ovde</p>
-                        <p>Grad, Srbija</p>
+                        <p>Janka Katica 5</p>
+                        <p>Beograd, Srbija</p>
                     </div>
                     <div class="contact-item">
                         <h3>Radno Vreme</h3>
@@ -246,9 +238,6 @@
                         <select id="bed-type" name="bed-type">
                             <option value="">Izaberite tip kreveta</option>
                             <option value="standardni">Standardni Medicinski Krevet</option>
-                            <option value="premium">Premium Medicinski Krevet</option>
-                            <option value="rehabilitacioni">Rehabilitacioni Krevet</option>
-                            <option value="nije-siguran">Nisam siguran</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -292,7 +281,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Da, dostava i montaža su uključeni u cenu iznajmljivanja za većinu lokacija.</p>
+                        <p>Nije, u zavisnoti od lokacije mi vam povoljno dovozimo i montiramo krevet.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -346,8 +335,8 @@
                 </div>
                 <div class="footer-section">
                     <h3>Kontakt</h3>
-                    <p>Telefon: +381 XX XXX XXXX</p>
-                    <p>Email: info@medicinskikreveti.rs</p>
+                    <p>Telefon: +381 66 5858 790</p>
+                    <p>Email: despotm1@gmail.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
