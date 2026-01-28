@@ -53,35 +53,69 @@ faqItems.forEach(item => {
     });
 });
 
-// Contact Form Handling
+// Contact Form – šalje direktno na despotm1@gmail.com (FormSubmit.co)
 const contactForm = document.getElementById('contactForm');
+const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/despotm1@gmail.com';
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
-        // Get form data
+
+        const nameEl = document.getElementById('name');
+        const phoneEl = document.getElementById('phone');
+        const emailEl = document.getElementById('email');
+        const bedTypeEl = document.getElementById('bed-type');
+        const periodEl = document.getElementById('period');
+        const messageEl = document.getElementById('message');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
         const formData = {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            email: document.getElementById('email').value,
-            bedType: document.getElementById('bed-type').value,
-            period: document.getElementById('period').value,
-            message: document.getElementById('message').value
+            name: nameEl.value.trim(),
+            phone: phoneEl.value.trim(),
+            email: emailEl.value.trim(),
+            'bed-type': bedTypeEl.value,
+            period: periodEl.value,
+            message: messageEl.value.trim()
         };
-        
-        // Validate required fields
+
         if (!formData.name || !formData.phone) {
             alert('Molimo popunite obavezna polja (Ime i Prezime, Telefon).');
             return;
         }
-        
-        // Here you would typically send the data to a server
-        // For now, we'll just show a success message
-        showFormSuccess();
-        
-        // Reset form
-        contactForm.reset();
+
+        const payload = {
+            ...formData,
+            _subject: 'Novi zahtev - Medicinski Kreveti',
+            _template: 'table'
+        };
+        if (formData.email) payload._replyto = formData.email;
+
+        const prevText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Šaljem...';
+
+        try {
+            const res = await fetch(FORMSUBMIT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+
+            if (res.ok && data.success !== false) {
+                showFormSuccess();
+                contactForm.reset();
+            } else {
+                const msg = data.message || 'Došlo je do greške. Pokušajte ponovo ili nas pozovite.';
+                alert(msg);
+            }
+        } catch (err) {
+            console.error(err);
+            alert('Došlo je do greške pri slanju. Proverite internet i pokušajte ponovo.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = prevText;
+        }
     });
 }
 
